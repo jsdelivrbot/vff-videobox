@@ -70,14 +70,14 @@
 "use strict";
 
 
-var _videoBox = __webpack_require__(1);
+var _videobox = __webpack_require__(1);
 
-var _videoBox2 = _interopRequireDefault(_videoBox);
+var _videobox2 = _interopRequireDefault(_videobox);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 if (window.vff) {
-    window.vff.define("vff-videobox", _videoBox2.default);
+    window.vff.define("vff-videobox", _videobox2.default);
 }
 
 /***/ }),

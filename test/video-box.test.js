@@ -1,5 +1,5 @@
-import VideoBox from '../src/video-box';
-jest.mock('../src/video-box');
+import VideoBox from '../src/videobox';
+jest.mock('../src/videobox');
 
 beforeEach(() => {
     VideoBox.mockClear();

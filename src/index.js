@@ -1,4 +1,4 @@
-import VideoBox from './video-box';
+import VideoBox from './videobox';
 
 if(window.vff){
     window.vff.define("vff-videobox" , VideoBox);
