@@ -212,8 +212,8 @@ var VideoBox = function (_HTMLElement) {
             var self = this;
 
             // if(inController) return;
-
-            var signalingServer = self.signalingServer || "https://rtc.medialooks.com:8889";
+            // var signalingServer = self.signalingServer || "https://rtc.medialooks.com:8889";
+            var signalingServer = self.signalingServer || "http://rtc.videoflow.io";
             var room = url.split("/")[0];
             var targetId = url.split("/")[1];
 
