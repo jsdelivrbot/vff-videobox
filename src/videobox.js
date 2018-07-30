@@ -12,8 +12,10 @@ export default class VideoBox extends HTMLElement {
             '</div>';
 
         this.innerHTML = html;
+        this.controllerPreview = true;
 
-        if(this.src && !window.vff.isController){
+
+        if(this.src && (this.controllerPreview || !window.vff.isController)){
             this.initStream(this.src);
         }
     }
@@ -166,15 +168,14 @@ export default class VideoBox extends HTMLElement {
         return this._streamId;
     }
     get src() {
-        return this.getAttribute("src");
+        return this.getAttribute("src") || "";
     }
     set src(value) {
         this.setAttribute('src', value);
         clearInterval(this.canvasDrawTimeout);
-        if(value && !window.vff.isController){
+        if(value && (this.controllerPreview || !window.vff.isController)){
             this.initStream(value);
         }
-
     }
 
 
