@@ -264,7 +264,7 @@ var VideoBox = function (_HTMLElement) {
         key: 'expose',
         value: function expose() {
             return {
-                src: 'src'
+                Src: 'src'
             };
         }
     }, {
