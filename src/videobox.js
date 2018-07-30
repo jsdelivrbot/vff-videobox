@@ -180,7 +180,7 @@ export default class VideoBox extends HTMLElement {
 
     expose(){
         return {
-            src  : 'src'
+            Src  : 'src'
         };
     }
 
