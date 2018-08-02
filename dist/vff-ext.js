@@ -107,7 +107,10 @@ var VideoBox = function (_HTMLElement) {
     function VideoBox() {
         _classCallCheck(this, VideoBox);
 
-        return _possibleConstructorReturn(this, (VideoBox.__proto__ || Object.getPrototypeOf(VideoBox)).call(this));
+        var _this = _possibleConstructorReturn(this, (VideoBox.__proto__ || Object.getPrototypeOf(VideoBox)).call(this));
+
+        _this._src = '';
+        return _this;
     }
 
     _createClass(VideoBox, [{
@@ -217,6 +220,7 @@ var VideoBox = function (_HTMLElement) {
             var signalingServer = self.signalingServer || "http://rtc.videoflow.io";
             var room = url.split("/")[0];
             var targetId = url.split("/")[1];
+            if (!targetId || !room) return;
 
             // create webrtc connection
             if (self.webrtc) {
@@ -286,7 +290,8 @@ var VideoBox = function (_HTMLElement) {
         set: function set(value) {
             this.setAttribute('src', value);
             clearInterval(this.canvasDrawTimeout);
-            if (value && (this.controllerPreview || !window.vff.isController)) {
+            if (value && value !== this._src && (this.controllerPreview || !window.vff.isController)) {
+                this._src = value;
                 this.initStream(value);
             }
         }

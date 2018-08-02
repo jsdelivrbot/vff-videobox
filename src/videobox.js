@@ -3,6 +3,7 @@ const WebRTC = require('./simplewebrtc.bundle');
 export default class VideoBox extends HTMLElement {
     constructor() {
         super();
+        this._src = '';
     }
 
     connectedCallback() {
@@ -116,6 +117,7 @@ export default class VideoBox extends HTMLElement {
         var signalingServer = self.signalingServer || "http://rtc.videoflow.io";
         var room = url.split("/")[0];
         var targetId = url.split("/")[1];
+        if(!targetId || !room) return;
 
         // create webrtc connection
         if(self.webrtc){
@@ -173,7 +175,8 @@ export default class VideoBox extends HTMLElement {
     set src(value) {
         this.setAttribute('src', value);
         clearInterval(this.canvasDrawTimeout);
-        if(value && (this.controllerPreview || !window.vff.isController)){
+        if(value && value !== this._src && (this.controllerPreview || !window.vff.isController)){
+            this._src = value;
             this.initStream(value);
         }
     }
