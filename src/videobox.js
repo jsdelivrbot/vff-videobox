@@ -13,7 +13,7 @@ export default class VideoBox extends HTMLElement {
             '</div>';
 
         this.innerHTML = html;
-        this.controllerPreview = true;
+        this.controllerPreview = false;
 
 
         if(this.src && (this.controllerPreview || !window.vff.isController)){

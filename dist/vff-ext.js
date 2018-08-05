@@ -119,7 +119,7 @@ var VideoBox = function (_HTMLElement) {
             var html = '<div style="width: 100%; height: 100%;">' + '   <canvas class="canvas" style="width: 100%; height: 100%;"></canvas>' + '</div>';
 
             this.innerHTML = html;
-            this.controllerPreview = true;
+            this.controllerPreview = false;
 
             if (this.src && (this.controllerPreview || !window.vff.isController)) {
                 this.initStream(this.src);
