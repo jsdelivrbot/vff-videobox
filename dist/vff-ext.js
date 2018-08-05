@@ -289,10 +289,10 @@ var VideoBox = function (_HTMLElement) {
         },
         set: function set(value) {
             this.setAttribute('src', value);
-            clearInterval(this.canvasDrawTimeout);
             if (value && (
             // value !== this._src &&
             this.controllerPreview || !window.vff.isController)) {
+                clearInterval(this.canvasDrawTimeout);
                 this._src = value;
                 this.initStream(value);
             }
