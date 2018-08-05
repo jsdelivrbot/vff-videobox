@@ -16,7 +16,7 @@ export default class VideoBox extends HTMLElement {
         this.controllerPreview = false;
 
 
-        if(this.src && (this.controllerPreview || !window.vff.isController)){
+        if(this.src && (this.controllerPreview || window.vff.mode !== 'controller-preview')){
             this.initStream(this.src);
         }
     }
@@ -176,7 +176,7 @@ export default class VideoBox extends HTMLElement {
         this.setAttribute('src', value);
         if(value &&
             // value !== this._src &&
-            (this.controllerPreview || !window.vff.isController)){
+            (this.controllerPreview || window.vff.mode !== 'controller-preview')){
                 clearInterval(this.canvasDrawTimeout);
                 this._src = value;
                 this.initStream(value);
