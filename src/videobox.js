@@ -14,6 +14,7 @@ export default class VideoBox extends HTMLElement {
 
         this.innerHTML = html;
         this.controllerPreview = false;
+        this.useCanvas = false;
 
 
         if(this.src && (this.controllerPreview || window.vff.mode !== 'controller-preview')){
@@ -41,12 +42,22 @@ export default class VideoBox extends HTMLElement {
         video.setAttribute('loop', '');
         video.setAttribute('autoplay', 'true');
         // video.setAttribute('controls', '');
-        // video.setAttribute('width', '100%');
-        // video.setAttribute('height', '100%');
+
 
         self.videoEl = video;
 
-        self.startDraw();
+        if(this.useCanvas){
+            self.startDraw();
+        } else {
+            video.setAttribute('width', '100%');
+            video.setAttribute('height', '100%');
+            while (self.hasChildNodes()){
+                self.removeChild(self.lastChild);
+            }
+            self.appendChild(video);
+        }
+
+
         self.webrtc.stopLocalVideo();
         video.play();
     }
