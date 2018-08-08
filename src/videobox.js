@@ -166,6 +166,7 @@ export default class VideoBox extends HTMLElement {
         });
 
         //Handle incoming video from target peer
+        console.log('Adding RTC video handler');
         self.webrtc.on('videoAdded', function (video, peer) {
             self.initVideo(video, peer);
         });
