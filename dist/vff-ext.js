@@ -139,7 +139,8 @@ var VideoBox = function (_HTMLElement) {
         value: function initVideo(video /*,peer*/) {
 
             var self = this;
-            // console.log('video added', peer);
+
+            console.info('Initialize RTC Video');
 
             video.setAttribute('loop', '');
             video.setAttribute('autoplay', 'true');
@@ -225,6 +226,7 @@ var VideoBox = function (_HTMLElement) {
         value: function initStream(url) {
             var self = this;
 
+            console.log('Initialize RTC Connection:', url);
             // if(inController) return;
             // var signalingServer = self.signalingServer || "https://rtc.medialooks.com:8889";
             var signalingServer = self.signalingServer || "https://rtc.videoflow.io";

@@ -37,7 +37,8 @@ export default class VideoBox extends HTMLElement {
     initVideo(video /*,peer*/) {
 
         let self = this;
-        // console.log('video added', peer);
+
+        console.info('Initialize RTC Video');
 
         video.setAttribute('loop', '');
         video.setAttribute('autoplay', 'true');
@@ -123,6 +124,7 @@ export default class VideoBox extends HTMLElement {
     initStream(url) {
         let self = this;
 
+        console.log('Initialize RTC Connection:', url);
         // if(inController) return;
         // var signalingServer = self.signalingServer || "https://rtc.medialooks.com:8889";
         var signalingServer = self.signalingServer || "https://rtc.videoflow.io";
