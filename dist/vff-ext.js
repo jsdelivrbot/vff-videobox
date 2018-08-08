@@ -140,7 +140,7 @@ var VideoBox = function (_HTMLElement) {
 
             var self = this;
 
-            console.info('Initialize RTC Video');
+            console.info('Initialize RTC Video'); // eslint-disable-line no-console
 
             video.setAttribute('loop', '');
             video.setAttribute('autoplay', 'true');
@@ -226,7 +226,7 @@ var VideoBox = function (_HTMLElement) {
         value: function initStream(url) {
             var self = this;
 
-            console.log('Initialize RTC Connection:', url);
+            console.log('Initialize RTC Connection:', url); // eslint-disable-line no-console
             // if(inController) return;
             // var signalingServer = self.signalingServer || "https://rtc.medialooks.com:8889";
             var signalingServer = self.signalingServer || "https://rtc.videoflow.io";
@@ -268,7 +268,7 @@ var VideoBox = function (_HTMLElement) {
             });
 
             //Handle incoming video from target peer
-            console.log('Adding RTC video handler');
+            console.log('Adding RTC video handler'); // eslint-disable-line no-console
             self.webrtc.on('videoAdded', function (video, peer) {
                 self.initVideo(video, peer);
             });
